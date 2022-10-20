@@ -23,4 +23,4 @@ For any questions write /help.
 
 If you will write any nonsens you will receive "I don't understand you. Please write /help."
 
-**markdown**
+
