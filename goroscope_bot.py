@@ -1,6 +1,6 @@
 # Подключаем модуль для Телеграма
 import telebot
-
+#заготовки
 # Подключаем модуль случайных чисел
 import random
 
@@ -136,7 +136,7 @@ def callback_worker(call):
 
 # Запускаем постоянный опрос бота в Телеграме
 
-
+#запускаем бота
 def main_loop():
     while True:
         bot.polling(none_stop=True, interval=0)
