@@ -1,14 +1,8 @@
-
 import telebot
-
 import random
 
-
 bot = telebot.TeleBot('5615645123:AAF9qf79ga9BGPdNjjWQT58XRH9ajQ7dIEU')
-
-
 from telebot import types
-
 
 first = ["The best day to study the subject. And the last one.",
          "Don't teach. You can't.",
@@ -34,11 +28,22 @@ third = ["Evil tongues may tell you this, but you don't need to listen to them t
          "There is no need to be afraid of functions — today is the time when they mean a lot.",
          "If you meet professor on the way, take part, and then this meeting will promise you pleasant troubles."]
 
+def command_answer(message: str) -> str:
+    if message == "/start":
+        return "Hi! I can predict your succses in the subject and give you a piece of advice."
+    elif message == "/help":
+        return "This bot can predict your success in the subject. To get started, write /start"
+    else:
+        return "I don't understand you. Please write /help."
+
+
+def generate_advice() -> str:
+    return random.choice(first) + ' ' + random.choice(second) + ' ' + random.choice(
+        second_add) + ' ' + random.choice(third)
 
 
 @bot.message_handler(content_types=['text'])
 def get_text_messages(message):
-
     if message.text == "/start":
 
 
