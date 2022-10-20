@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from project_213 import calc
+from goroscope_bot import calc
 
 
 class TestProject213(TestCase):
