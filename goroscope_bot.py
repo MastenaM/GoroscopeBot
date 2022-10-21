@@ -28,9 +28,10 @@ third = ["Evil tongues may tell you this, but you don't need to listen to them t
          "There is no need to be afraid of functions — today is the time when they mean a lot.",
          "If you meet professor on the way, take part, and then this meeting will promise you pleasant troubles."]
 
+
 def command_answer(message: str) -> str:
     if message == "/start":
-        return "Hi! I can predict your succses in the subject and give you a piece of advice."
+        return "Hi! I can predict your success in the subject and give you a piece of advice."
     elif message == "/help":
         return "This bot can predict your success in the subject. To get started, write /start"
     else:
@@ -46,17 +47,11 @@ def generate_advice() -> str:
 def get_text_messages(message):
     if message.text == "/start":
 
-
-
-        bot.send_message(message.from_user.id, "Hi! I can predict your succses in the subject and give you a piece of advice.")
-
-
+        bot.send_message(message.from_user.id, command_answer(message.text))
 
         keyboard = types.InlineKeyboardMarkup()
 
-
         key_datam = types.InlineKeyboardButton(text='Data management in database design', callback_data='subject')
-
 
         keyboard.add(key_datam)
 
@@ -68,7 +63,8 @@ def get_text_messages(message):
 
         keyboard.add(key_stat)
 
-        key_account = types.InlineKeyboardButton(text='Financial and Organizational Accounting', callback_data='subject')
+        key_account = types.InlineKeyboardButton(text='Financial and Organizational Accounting',
+                                                 callback_data='subject')
 
         keyboard.add(key_account)
 
@@ -80,11 +76,13 @@ def get_text_messages(message):
 
         keyboard.add(key_systems)
 
-        key_ethics = types.InlineKeyboardButton(text='Business Ethics and Corporate Social Responsibility', callback_data='subject')
+        key_ethics = types.InlineKeyboardButton(text='Business Ethics and Corporate Social Responsibility',
+                                                callback_data='subject')
 
         keyboard.add(key_ethics)
 
-        key_infrastruct = types.InlineKeyboardButton(text='Digital infrastructures for business', callback_data='subject')
+        key_infrastruct = types.InlineKeyboardButton(text='Digital infrastructures for business',
+                                                     callback_data='subject')
 
         keyboard.add(key_infrastruct)
 
@@ -96,7 +94,8 @@ def get_text_messages(message):
 
         keyboard.add(key_architec)
 
-        key_globe = types.InlineKeyboardButton(text='Business and Management in Global Context', callback_data='subject')
+        key_globe = types.InlineKeyboardButton(text='Business and Management in Global Context',
+                                               callback_data='subject')
 
         keyboard.add(key_globe)
 
@@ -104,28 +103,21 @@ def get_text_messages(message):
 
         keyboard.add(key_learn)
 
-
         bot.send_message(message.from_user.id, text="Choose the subject:", reply_markup=keyboard)
 
     elif message.text == "/help":
 
-        bot.send_message(message.from_user.id,
-                         "This bot can predict your success in the subject. To get started, write /start")
+        bot.send_message(message.from_user.id, command_answer(message.text))
 
     else:
 
-        bot.send_message(message.from_user.id, "I don't understand you. Please write /help.")
-
+        bot.send_message(message.from_user.id, command_answer(message.text))
 
 
 @bot.callback_query_handler(func=lambda call: True)
 def callback_worker(call):
-
     if call.data == "subject":
-
-        msg = random.choice(first) + ' ' + random.choice(second) + ' ' + random.choice(
-            second_add) + ' ' + random.choice(third)
-
+        msg = generate_advice()
 
         bot.send_message(call.message.chat.id, msg)
 

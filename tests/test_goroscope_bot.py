@@ -9,10 +9,10 @@ from goroscope_bot import second_add
 
 
 class TestHoroscopeBot(TestCase):
-    def test_calc(self) -> None:
+    def test_command(self) -> None:
         cases = [
-            ("Hi! I can tell you your horoscope for today", "/start"),
-            ("This bot can predict your horoscope for today. To get started, write /start", "/help"),
+            ("Hi! I can predict your success in the subject and give you a piece of advice.", "/start"),
+            ("This bot can predict your success in the subject. To get started, write /start", "/help"),
             ("I don't understand you. Please write /help.", "bla bla bla")
         ]
         for expected, args in cases:
@@ -20,6 +20,10 @@ class TestHoroscopeBot(TestCase):
                 self.assertEqual(expected,  command_answer(args))
 
     def test_advice(self) -> None:
-        advices_list = first + second + second_add + third
-        check_if_contains = any(substring in generate_advice() for substring in advices_list)
-        self.assertTrue(check_if_contains)
+        advice = generate_advice()
+        check1 = any(substring in advice for substring in first)
+        check2 = any(substring in advice for substring in second)
+        check3 = any(substring in advice for substring in second_add)
+        check4 = any(substring in advice for substring in third)
+        self.assertTrue(check1 and check2 and check3 and check4)
+
