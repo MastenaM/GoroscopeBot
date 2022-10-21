@@ -1,8 +1,8 @@
 import telebot
 import random
+from telebot import types
 
 bot = telebot.TeleBot('5615645123:AAF9qf79ga9BGPdNjjWQT58XRH9ajQ7dIEU')
-from telebot import types
 
 first = ["The best day to study the subject. And the last one.",
          "Don't teach. You can't.",
