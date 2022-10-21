@@ -1,9 +1,11 @@
+pyTelegramBotAPI==4.7.0
+
+#Indirect
 APScheduler==3.6.3
 cachetools==4.2.2
 certifi==2022.9.24
 charset-normalizer==2.1.1
 idna==3.4
-pyTelegramBotAPI==4.7.0
 python-telegram-bot==13.14
 pytz==2022.4
 pytz-deprecation-shim==0.1.0.post0
