@@ -5,6 +5,8 @@ This Bot can predict your future and give you a piece of advice.
 
 ## Usage
 
+Install all dependencies from requirements.txt file
+
 To run bot use:
 
 ```commandline
@@ -22,5 +24,6 @@ Choose your Zodiac sign and enjoy your divination.
 For any questions write /help.
 
 If you will write any nonsens you will receive "I don't understand you. Please write /help."
+
 
 
